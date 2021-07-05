@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listaProdutos">
+    <fragment
+        android:id="@+id/listaProdutos"
+        android:name="br.com.alura.aluraesporte.ui.fragment.ListaProdutosFragment"
+        android:label="Lista de Produtos"
+        tools:layout="@layout/lista_produtos"
+        >
+        <action
+            android:id="@+id/action_listaProdutos_to_detalhesProduto"
+            app:destination="@id/detalhesProduto"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment android:id="@+id/detalhesProduto"
+        android:label="Detalhes do Produto"
+        android:name="br.com.alura.aluraesporte.ui.fragment.DetalhesProdutoFragment"
+        tools:layout="@layout/detalhes_produto"
+        >
+        <action
+            android:id="@+id/action_detalhesProduto_to_pagamento"
+            app:destination="@id/pagamento"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <argument
+            android:name="produtoId"
+            app:argType="long" />
+    </fragment>
+    <fragment android:id="@+id/pagamento"
+        android:label="Pagamento"
+        android:name="br.com.alura.aluraesporte.ui.fragment.PagamentoFragment"
+        tools:layout="@layout/pagamento"
+        >
+        <action
+            android:id="@+id/action_pagamento_to_listaProdutos"
+            app:destination="@id/listaProdutos"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/nav_graph" />
+        <argument
+            android:name="produtoId"
+            app:argType="long" />
+    </fragment>
+</navigation>
