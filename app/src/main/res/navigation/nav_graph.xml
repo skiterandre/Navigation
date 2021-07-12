@@ -46,9 +46,34 @@
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
-            app:popUpTo="@id/nav_graph" />
+            app:popUpTo="@id/listaProdutos"
+            app:popUpToInclusive="true" />
         <argument
             android:name="produtoId"
             app:argType="long" />
     </fragment>
+    <fragment
+        android:id="@+id/Login"
+        android:name="br.com.alura.aluraesporte.ui.fragment.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/login">
+        <action
+            android:id="@+id/action_Login_to_listaProdutos"
+            app:destination="@id/listaProdutos"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/Login"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_Login"
+        app:destination="@id/Login"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim"
+        app:popUpTo="@id/listaProdutos"
+        app:popUpToInclusive="true" />
 </navigation>

@@ -1,11 +1,8 @@
 package br.com.alura.aluraesporte.ui.fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.LinearLayout.VERTICAL
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -17,7 +14,7 @@ import kotlinx.android.synthetic.main.lista_produtos.*
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class ListaProdutosFragment : Fragment() {
+class ListaProdutosFragment : BaseFragment() {
 
     private val viewModel: ProdutosViewModel by viewModel()
     private val adapter: ProdutosAdapter by inject()
@@ -37,6 +34,7 @@ class ListaProdutosFragment : Fragment() {
             }
         })
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

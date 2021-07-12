@@ -1,4 +1,23 @@
 package br.com.alura.aluraesporte.repository
 
-class LoginRepository {
+import android.content.SharedPreferences
+import androidx.core.content.edit
+
+private const val CHAVE_LOGADO = "LOGADO"
+
+class LoginRepository(private val preferences: SharedPreferences) {
+
+    fun loga() = salvaLogadoDeslogado(true)
+
+    fun estaLogado(): Boolean = preferences.getBoolean(CHAVE_LOGADO, false)
+
+    fun deslogar() = salvaLogadoDeslogado(false)
+
+    private fun salvaLogadoDeslogado(estado: Boolean) {
+        preferences.edit {
+            putBoolean(CHAVE_LOGADO, estado)
+        }
+    }
+
+
 }
