@@ -8,12 +8,15 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import br.com.alura.aluraesporte.NavGraphDirections
 import br.com.alura.aluraesporte.R
+import br.com.alura.aluraesporte.ui.viewmodel.EstadoAppViewModel
 import br.com.alura.aluraesporte.ui.viewmodel.LoginViewModel
+import org.koin.android.viewmodel.ext.android.sharedViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
 abstract class BaseFragment: Fragment() {
 
     private val loginViewModel: LoginViewModel by viewModel()
+    val estadoAppViewModel: EstadoAppViewModel by sharedViewModel()
     private val controlador by lazy {
         findNavController()
     }
